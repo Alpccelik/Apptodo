@@ -1,0 +1,56 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo</title>
+</head>
+<body>
+<link href="/webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<link href="/webjars/x-editable-bootstrap3/1.5.1/css/bootstrap-editable.css" rel="stylesheet"/
+<div class="container-fluid">
+    <div class="navbar navbar-default">
+        <div class="container-fluid">
+            <form class="navbar-form navbar-right" th:action="@{/user/logout}" method="post">
+                <input type="submit" class="btn btn-danger navbar-btn" role="button" value="Sign Out">
+            </form>
+        </div>
+    </div>
+    <div class="col-md-8 col-md-offset-2 col-sm-12">
+
+        <div class="row">
+
+            <h2>
+                Todo List
+                <a href="/todo/new" class="btn btn-warning">New Todo</a>
+            </h2>
+            <form th:id="${todo.getId()}" th:each="todo : ${todos}" class="col-md-6 col-sm-6 col-xs-12"
+                  style="padding: 0 10%; margin-bottom: 20px;"
+                  method="post">
+                    <h4>
+                        <label th:text="${todo.getName()}" class="control-label todo-name">Untitled</label>
+                        <a th:href="@{'/todo/' + ${todo.getId()} + '/delete'}" class="btn btn-danger btn-xs">X</a>
+                    </h4>
+                <div class="form-group">
+                    <div th:each="checkbox : ${todo.getItems()}">
+                        <input name="checkbox" type="checkbox" value="First Choice"
+                               th:checked="${checkbox.isChecked()}"
+                               th:id="${checkbox.getId()}"/>
+                        <a th:href="@{'/todo/item/' + ${checkbox.getId()} + '/delete'}" class="btn btn-danger btn-xs">X</a>
+                        <span class="item-content" th:text="${checkbox.getContent()}"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <a class="btn btn-primary btn-block" th:href="@{'/todo/' + ${todo.getId()} + '/item/add'}">New
+                        Item</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script> <!-- webjars!! -->
+<script type="text/javascript" src="/webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/webjars/x-editable-bootstrap3/1.5.1/js/bootstrap-editable.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+</body>
+</html>

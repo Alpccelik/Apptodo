@@ -1,0 +1,28 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>To Do App </title>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="col-sm-4 col-sm-offset-4" style="margin-top: 20%;">
+        <h1>app To Do App</h1>
+
+<table>
+    <tr>
+        <td>
+            <a th:href="@{/user/register}" class="btn btn-primary btn-lg active" role="button">User Register</a>
+        </td>
+        <td>
+            <a th:href="@{/user/login}" class="btn btn-primary btn-lg active" role="button">User login</a>
+        </td>
+    </tr>
+</table>
+    </div>
+    </div>
+<script type="text/javascript" src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="/webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+</html>

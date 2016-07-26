@@ -1,0 +1,50 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register Page</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.6/css/bootstrap.min.css">
+
+</head>
+<body>
+<h1>User Register app To Do App</h1>
+<div class="container">
+    <div class="col-sm-4 col-sm-offset-4" style="margin-top: 10%;">
+
+
+        <form  class="form-horizontal" method="post">
+            <div class="form-group">
+                <label for="username" class="control-label">Username: </label>
+                <input type="text" class="form-control" name="username" id="username"/>
+            </div>
+            <div class="form-group">
+                <label for="password" class="control-label">Password: </label>
+                <input type="password" class="form-control" name="password" id="password"/>
+            </div>
+            <div class="form-group">
+                <label for="email" class="control-label">Email: </label>
+                <input type="email" class="form-control" name="email" id="email"/>
+            </div>
+            <div class="form-group">
+                <label for="name" class="control-label">Name: </label>
+                <input type="name" class="form-control" name="name" id="name"/>
+            </div>
+
+
+            <div class="form-group">
+            <input id="send" name="send" type="submit" class="form-control" value="Send"></div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-default" value="Sign In"/>
+            </div>
+            <div th:text="${createUserResponse}"></div>
+
+            <div th:if="${isUserCreated == true}" >
+                <a th:href="@{/user/login}" class="btn btn-primary btn-lg active" role="button">User login</a> </div>
+        </form>
+        </div>
+    </div>
+
+<script type="text/javascript" src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="/webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+</html>
