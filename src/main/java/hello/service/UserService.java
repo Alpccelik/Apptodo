@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -31,4 +32,12 @@ public class UserService {
         return userDao.findOneByUsernameAndEnabledTrue(username);
     }
 
+    public User getUserById(long id){
+        return userDao.getUserById(id);
+    }
+
+
+    public List<User> findAll() {
+        return  userDao.findAll();
+    }
 }
